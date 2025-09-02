@@ -1,0 +1,228 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That's a Fact Jack!</title>
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="grids.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Fira+Sans&family=IBM+Plex+Sans&family=Inconsolata&family=Inter&family=Karla&family=Lato&family=Lora&family=Merriweather&family=Montserrat&family=Nunito&family=Open+Sans&family=PT+Sans&family=Playfair+Display&family=Poppins&family=Raleway&family=Roboto&family=Rubik&family=Source+Sans+Pro&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+            <h1 class="title">That's a Fact Jack! 🤯</h1>
+            <select class="category-filter header-category" id="categoryFilter">
+                <option value="icon" selected style="display: none;">📂</option>
+                <option value="none" selected>None</option>
+                <option value="all">All Categories</option>
+                <option value="favorites">Favorites</option>
+                <option value="liked">Liked</option>
+                <option value="I KNOW THAT JACK">I Know That Jack!</option>
+                <option value="PASTED">Pasted</option>
+                <option value="SPACE">Space</option>
+                <option value="NATURE">Nature</option>
+                <option value="HISTORY">History</option>
+                <option value="SCIENCE">Science</option>
+                <option value="ANIMALS">Animals</option>
+                <option value="TECHNOLOGY">Technology</option>
+                <option value="FOOD">Food</option>
+                <option value="HUMAN BODY">Human Body</option>
+                <option value="PHYSICS">Physics</option>
+                <option value="OCEAN">Ocean</option>
+                <option value="BIOLOGY">Biology</option>
+                <option value="GEOGRAPHY">Geography</option>
+                <option value="PSYCHOLOGY">Psychology</option>
+                <option value="MUSIC">Music</option>
+                <option value="SPORTS">Sports</option>
+                <option value="LITERATURE">Literature</option>
+                <option value="MATHEMATICS">Mathematics</option>
+                <option value="MEDICINE">Medicine</option>
+                <option value="ARCHAEOLOGY">Archaeology</option>
+                <option value="CHEMISTRY">Chemistry</option>
+            </select>
+            <button class="paste-btn" id="pasteBtn" title="Paste from Clipboard">📋</button>
+        </header>
+        
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">Settings</h3>
+                
+                <div class="sidebar-section">
+                    <label>Search Engine</label>
+                    <select class="search-engine-selector" id="searchEngineSelector">
+                        <option value="icon" selected style="display: none;">🔍</option>
+                        <option value="google">Google</option>
+                        <option value="bing">Bing</option>
+                        <option value="duckduckgo">DuckDuckGo</option>
+                        <option value="yahoo">Yahoo</option>
+                        <option value="yandex">Yandex</option>
+                        <option value="baidu">Baidu</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="text" class="custom-search-url" id="customSearchUrl" placeholder="Custom search URL (use {query} for search term)" style="display: none;">
+                    <input type="text" class="search-modifier" id="searchModifier" placeholder="Search prefix (e.g. 'facts about')" maxlength="50">
+                </div>
+                
+                <div class="sidebar-section">
+                    <label>Grid Style</label>
+                    <select class="grid-selector" id="gridSelector">
+                        <option value="icon" selected style="display: none;">⚏</option>
+                        <option value="default">Default</option>
+                        <option value="two-column">Two Column</option>
+                        <option value="three-column">Three Column</option>
+                        <option value="masonry">Masonry</option>
+                        <option value="card-grid">Card Grid</option>
+                        <option value="staggered">Staggered</option>
+                        <option value="zigzag">Zigzag</option>
+                        <option value="mosaic">Mosaic</option>
+                    </select>
+                </div>
+                
+                <div class="sidebar-section">
+                    <label>Theme</label>
+                    <select class="theme-selector" id="themeSelector">
+                        <option value="icon" selected style="display: none;">🎨</option>
+                        <option value="default">Default</option>
+                        <option value="neon">Neon</option>
+                        <option value="ocean">Ocean</option>
+                        <option value="sunset">Sunset</option>
+                        <option value="forest">Forest</option>
+                        <option value="royal">Royal</option>
+                        <option value="fire">Fire</option>
+                        <option value="ice">Ice</option>
+                        <option value="retro">Retro</option>
+                        <option value="cyberpunk">Cyberpunk</option>
+                        <option value="pastel">Pastel</option>
+                        <option value="midnight">Midnight</option>
+                        <option value="autumn">Autumn</option>
+                        <option value="galaxy">Galaxy</option>
+                        <option value="toxic">Toxic</option>
+                        <option value="cherry">Cherry</option>
+                        <option value="electric">Electric</option>
+                        <option value="earth">Earth</option>
+                        <option value="cosmic">Cosmic</option>
+                        <option value="vapor">Vapor</option>
+                        <option value="gold">Gold</option>
+                    </select>
+                </div>
+                
+                <div class="sidebar-section">
+                    <label>Font Settings</label>
+                    <select class="font-selector" id="fontSelector">
+                        <option value="'Cal Sans', sans-serif">Default</option>
+                        <option value="'Roboto', sans-serif">Roboto</option>
+                        <option value="'Open Sans', sans-serif">Open Sans</option>
+                        <option value="'Lato', sans-serif">Lato</option>
+                        <option value="'Montserrat', sans-serif">Montserrat</option>
+                        <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
+                        <option value="'Nunito', sans-serif">Nunito</option>
+                        <option value="'Poppins', sans-serif">Poppins</option>
+                        <option value="'Inter', sans-serif">Inter</option>
+                        <option value="'Merriweather', serif">Merriweather</option>
+                        <option value="'PT Sans', sans-serif">PT Sans</option>
+                        <option value="'Ubuntu', sans-serif">Ubuntu</option>
+                        <option value="'Raleway', sans-serif">Raleway</option>
+                        <option value="'Fira Sans', sans-serif">Fira Sans</option>
+                        <option value="'Karla', sans-serif">Karla</option>
+                        <option value="'Rubik', sans-serif">Rubik</option>
+                        <option value="'Lora', serif">Lora</option>
+                        <option value="'Playfair Display', serif">Playfair Display</option>
+                        <option value="'Arimo', sans-serif">Arimo</option>
+                        <option value="'Inconsolata', monospace">Inconsolata</option>
+                        <option value="'IBM Plex Sans', sans-serif">IBM Plex Sans</option>
+                    </select>
+                    <div class="font-size-container">
+                        <label for="fontSizeSlider">Font Size: <span id="fontSizeValue">16px</span></label>
+                        <input type="range" id="fontSizeSlider" min="12" max="24" value="16" step="1">
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <label>Actions</label>
+                    <div class="sidebar-actions">
+                        <button class="download-btn" id="downloadBtn" title="Download Favorites">💾 <span class="count">0</span></button>
+                        <button class="import-btn" id="importBtn" title="Import CSV">⬆️</button>
+                    </div>
+                    <div class="sidebar-actions">
+                        <button class="import-btn" id="conversationImportBtn" title="Import Conversations CSV">💬</button>
+                        <button class="import-btn" id="howToUseBtn" title="How to Use & Reference">❓</button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <label>Popup Settings</label>
+                    <div class="toggle-container">
+                        <input type="checkbox" id="popupToggle">
+                        <label for="popupToggle" class="toggle-label">Enable Random Popups</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <div class="facts-container" id="factsContainer">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading facts...</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <p>Keep scrolling for more facts! ↓</p>
+        </div>
+        
+        <input type="file" id="csvInput" accept=".csv" style="display: none;">
+        <input type="file" id="conversationCsvInput" accept=".csv" style="display: none;">
+    </div>
+
+    <div class="modal-overlay" id="howToUseOverlay">
+        <div class="modal" id="howToUseModal">
+            <div class="modal-header">
+                <h2>How to Use & Reference</h2>
+                <button class="modal-close" id="howToUseCloseBtn">&times;</button>
+            </div>
+            <div class="modal-content">
+                <h3>Header Bar</h3>
+                <ul>
+                    <li><strong>☰ (Menu)</strong>: Toggles this sidebar.</li>
+                    <li><strong>📂 (Category Filter)</strong>: Filter facts by category. 'Liked' and 'Favorites' are special categories you populate. 'Pasted' contains facts from your clipboard.</li>
+                    <li><strong>📋 (Paste)</strong>: Paste text from your clipboard to create new facts under the "Pasted" category.</li>
+                </ul>
+                <h3>Fact Cards</h3>
+                <ul>
+                    <li><strong>Click a card</strong>: Searches for the fact using your selected search engine.</li>
+                    <li><strong>👍 (Like)</strong>: Adds the fact to the "Liked" category. Liked facts are saved in your browser for future visits.</li>
+                    <li><strong>🤍/❤️ (Favorite)</strong>: Adds the fact to a temporary "Favorites" list, which you can download from the sidebar.</li>
+                    <li><strong>🧠 (I Know That Jack!)</strong>: Moves the fact to a special category to hide it from your main feed.</li>
+                </ul>
+                <h3>Sidebar Settings</h3>
+                <ul>
+                    <li><strong>Search Engine</strong>: Choose your preferred search engine. Select 'Custom' to add your own (use <code>{query}</code> for the search term). You can also add a prefix like 'facts about' to all searches.</li>
+                    <li><strong>Grid Style</strong>: Change the layout of the fact cards on desktop.</li>
+                    <li><strong>Theme</strong>: Customize the app's color scheme.</li>
+                    <li><strong>Font Settings</strong>: Adjust the font family and font size for better readability. Your choices are saved in your browser.</li>
+                    <li><strong>Actions</strong>:
+                        <ul>
+                            <li><strong>💾 (Download Favorites)</strong>: Downloads your favorited facts as a <code>.txt</code> file.</li>
+                            <li><strong>⬆️ (Import Facts)</strong>: Import your own facts from a <code>.csv</code> file. The CSV must have 'Category' and 'Fact' columns.</li>
+                            <li><strong>💬 (Import Conversations)</strong>: Import English/Spanish conversation pairs from a <code>.csv</code> file for the conversation popups. The CSV must have 'English' and 'Spanish' columns.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Popup Settings</strong>: Enable or disable the random popups that show facts and conversation snippets.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

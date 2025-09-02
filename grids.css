@@ -1,0 +1,78 @@
+.facts-container[data-grid="two-column"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+}
+
+.facts-container[data-grid="three-column"] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+}
+
+.facts-container[data-grid="masonry"] {
+    columns: 2;
+    column-gap: 20px;
+    max-width: 1000px;
+}
+
+.facts-container[data-grid="masonry"] .fact-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+.facts-container[data-grid="card-grid"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+}
+
+.facts-container[data-grid="staggered"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+}
+
+.facts-container[data-grid="staggered"] .fact-card:nth-child(even) {
+    margin-top: 40px;
+}
+
+.facts-container[data-grid="zigzag"] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+}
+
+.facts-container[data-grid="zigzag"] .fact-card:nth-child(3n+1) {
+    margin-top: 0;
+}
+
+.facts-container[data-grid="zigzag"] .fact-card:nth-child(3n+2) {
+    margin-top: 30px;
+}
+
+.facts-container[data-grid="zigzag"] .fact-card:nth-child(3n+3) {
+    margin-top: 60px;
+}
+
+.facts-container[data-grid="mosaic"] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+    max-width: 1400px;
+}
+
+.facts-container[data-grid="mosaic"] .fact-card:nth-child(4n+1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.facts-container[data-grid="mosaic"] .fact-card:nth-child(8n+3) {
+    grid-column: span 2;
+}

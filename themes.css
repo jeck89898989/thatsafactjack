@@ -1,0 +1,153 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --tertiary-color: #45b7d1;
+    --bg-color: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
+    --accent-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="neon"] {
+    --primary-color: #ff00ff;
+    --secondary-color: #00ffff;
+    --tertiary-color: #ffff00;
+    --bg-color: #000011;
+    --card-bg: rgba(255, 0, 255, 0.1);
+}
+
+[data-theme="ocean"] {
+    --primary-color: #0077be;
+    --secondary-color: #00a8cc;
+    --tertiary-color: #87ceeb;
+    --bg-color: #001122;
+    --card-bg: rgba(0, 119, 190, 0.1);
+}
+
+[data-theme="sunset"] {
+    --primary-color: #ff6b35;
+    --secondary-color: #f7931e;
+    --tertiary-color: #ffb347;
+    --bg-color: #1a0800;
+    --card-bg: rgba(255, 107, 53, 0.1);
+}
+
+[data-theme="forest"] {
+    --primary-color: #228b22;
+    --secondary-color: #32cd32;
+    --tertiary-color: #90ee90;
+    --bg-color: #0a1a0a;
+    --card-bg: rgba(34, 139, 34, 0.1);
+}
+
+[data-theme="royal"] {
+    --primary-color: #663399;
+    --secondary-color: #9966cc;
+    --tertiary-color: #cc99ff;
+    --bg-color: #0a0011;
+    --card-bg: rgba(102, 51, 153, 0.1);
+}
+
+[data-theme="fire"] {
+    --primary-color: #dc143c;
+    --secondary-color: #ff4500;
+    --tertiary-color: #ffa500;
+    --bg-color: #1a0505;
+    --card-bg: rgba(220, 20, 60, 0.1);
+}
+
+[data-theme="ice"] {
+    --primary-color: #87ceeb;
+    --secondary-color: #add8e6;
+    --tertiary-color: #e0ffff;
+    --bg-color: #0a0f1a;
+    --card-bg: rgba(135, 206, 235, 0.1);
+}
+
+[data-theme="retro"] {
+    --primary-color: #ff69b4;
+    --secondary-color: #00ced1;
+    --tertiary-color: #ffd700;
+    --bg-color: #2d1b69;
+    --card-bg: rgba(255, 105, 180, 0.1);
+}
+
+[data-theme="cyberpunk"] {
+    --primary-color: #ff0080;
+    --secondary-color: #00ff41;
+    --tertiary-color: #0080ff;
+    --bg-color: #0d0208;
+    --card-bg: rgba(255, 0, 128, 0.1);
+}
+
+[data-theme="pastel"] {
+    --primary-color: #ffb3ba;
+    --secondary-color: #baffc9;
+    --tertiary-color: #bae1ff;
+    --bg-color: #1a1a1a;
+    --card-bg: rgba(255, 179, 186, 0.1);
+}
+
+[data-theme="midnight"] {
+    --primary-color: #191970;
+    --secondary-color: #4169e1;
+    --tertiary-color: #6495ed;
+    --bg-color: #000000;
+    --card-bg: rgba(25, 25, 112, 0.1);
+}
+
+[data-theme="autumn"] {
+    --primary-color: #d2691e;
+    --secondary-color: #ff8c00;
+    --tertiary-color: #ffd700;
+    --bg-color: #0f0a05;
+    --card-bg: rgba(210, 105, 30, 0.1);
+}
+
+[data-theme="galaxy"] {
+    --primary-color: #8a2be2;
+    --secondary-color: #da70d6;
+    --tertiary-color: #dda0dd;
+    --bg-color: #050010;
+    --card-bg: rgba(138, 43, 226, 0.1);
+}
+
+[data-theme="toxic"] {
+    --primary-color: #adff2f;
+    --secondary-color: #7fff00;
+    --tertiary-color: #32cd32;
+    --bg-color: #0a0f00;
+    --card-bg: rgba(173, 255, 47, 0.1);
+}
+
+[data-theme="cherry"] {
+    --primary-color: #dc143c;
+    --secondary-color: #ff1493;
+    --tertiary-color: #ff69b4;
+    --bg-color: #0f0005;
+    --card-bg: rgba(220, 20, 60, 0.1);
+}
+
+[data-theme="electric"] {
+    --primary-color: #00ffff;
+    --secondary-color: #0080ff;
+    --tertiary-color: #8000ff;
+    --bg-color: #000a0f;
+    --card-bg: rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="earth"] {
+    --primary-color: #8b4513;
+    --secondary-color: #cd853f;
+    --tertiary-color: #daa520;
+    --bg-color: #0a0703;
+    --card-bg: rgba(139, 69, 19, 0.1);
+}
+
+[data-theme="cosmic"] {
+    --primary-color: #ff1493;
+    --secondary-color: #00ced1;
+    --tertiary-color: #ffd700;
+    --bg-color: #000008;
+    --card-bg: rgba(255, 20, 147, 0.1);
+}

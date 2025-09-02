@@ -1,0 +1,111 @@
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .sidebar.open {
+        right: 0;
+    }
+    
+    .sidebar-content {
+        padding: 80px 20px 24px;
+    }
+    
+    .header {
+        padding: 12px 16px;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        justify-content: space-between;
+    }
+
+    .header-buttons {
+        gap: 4px;
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .title {
+        font-size: 1rem;
+        order: 1;
+        text-align: center;
+        margin-bottom: 4px;
+    }
+
+    .theme-selector,
+    .category-filter,
+    .grid-selector,
+    .search-engine-selector,
+    .search-modifier {
+        order: 2;
+        margin-right: 0;
+        padding: 4px 6px;
+        font-size: 0.7rem;
+        flex: 1;
+        min-width: 80px;
+    }
+
+    .import-btn, .download-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        flex: 1;
+        min-width: 60px;
+    }
+
+    .facts-container {
+        padding: 100px 16px 40px;
+    }
+
+    .fact-card {
+        padding: 16px;
+    }
+
+    .fact-text {
+        font-size: 0.95rem;
+    }
+
+    .search-modifier {
+        min-width: 80px;
+    }
+
+    .custom-search-url {
+        min-width: 100px;
+        font-size: 0.7rem;
+        padding: 4px 6px;
+    }
+
+    .facts-container[data-grid="two-column"],
+    .facts-container[data-grid="three-column"],
+    .facts-container[data-grid="card-grid"],
+    .facts-container[data-grid="staggered"],
+    .facts-container[data-grid="zigzag"],
+    .facts-container[data-grid="mosaic"] {
+        display: block;
+    }
+
+    .facts-container[data-grid="masonry"] {
+        columns: 1;
+    }
+
+    .facts-container[data-grid="staggered"] .fact-card:nth-child(even),
+    .facts-container[data-grid="zigzag"] .fact-card:nth-child(3n+2),
+    .facts-container[data-grid="zigzag"] .fact-card:nth-child(3n+3) {
+        margin-top: 0;
+    }
+
+    .sidebar-toggle {
+        min-width: 40px;
+        height: 40px;
+        padding: 6px 10px;
+    }
+
+    .paste-btn {
+        min-width: 40px;
+        height: 40px;
+        padding: 6px 10px;
+        margin-left: 0;
+    }
+}
