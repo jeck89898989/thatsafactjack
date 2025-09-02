@@ -17,8 +17,13 @@ class FactsApp {
         this.popupsEnabled = false; // Changed: popup toggle state
         
         this.initializeElements();
-        this.loadSettings(); // New: Load settings from localStorage
         this.setupEventListeners();
+        // Initialization continues in the async init method
+    }
+
+    async init() {
+        await this.loadAddonFacts(); // Load addon.csv facts
+        this.loadSettings(); // Load settings from localStorage
         this.startRandomPopups();
         // Don't auto-load facts since default is 'none'
     }
@@ -434,6 +439,28 @@ class FactsApp {
         event.target.value = '';
     }
 
+    // New: Method to load facts from addon.csv on app startup
+    async loadAddonFacts() {
+        try {
+            const response = await fetch('addon.csv');
+            if (!response.ok) {
+                console.warn('addon.csv not found or could not be loaded. Continuing without addon facts.');
+                return;
+            }
+            const text = await response.text();
+            const newFacts = this.parseCSV(text);
+
+            if (newFacts.length > 0) {
+                this.facts = [...newFacts, ...this.facts]; // Add addon facts to the beginning
+                this.updateCategoryFilter(newFacts);
+                toast(`🚀 Loaded ${newFacts.length} addon facts!`, 'var(--primary-color)');
+            }
+        } catch (error) {
+            console.error('Error loading addon.csv:', error);
+            toast('Failed to load addon facts.', 'red');
+        }
+    }
+    
     parseCSV(text) {
         const lines = text.split('\n').filter(line => line.trim());
         if (lines.length < 2) throw new Error('CSV must have headers and data');
@@ -714,16 +741,20 @@ class FactsApp {
     handlePopupToggle(event) {
         this.popupsEnabled = event.target.checked;
         toast(this.popupsEnabled ? '🔔 Popups enabled' : '🔕 Popups disabled', 'var(--secondary-color)');
+        localStorage.setItem('popupsEnabled', this.popupsEnabled); // Save popup state
     }
 
     startRandomPopups() {
-        // Start showing random popups after 10 seconds, then every 15-45 seconds
-        setTimeout(() => {
-            if (this.popupsEnabled) {
-                this.showRandomPopup();
-            }
-            this.scheduleNextPopup();
-        }, 10000);
+        // Only schedule if popups are enabled
+        if (this.popupsEnabled) {
+            // Start showing random popups after 10 seconds, then every 15-45 seconds
+            setTimeout(() => {
+                if (this.popupsEnabled) { // Re-check in case user disabled it
+                    this.showRandomPopup();
+                }
+                this.scheduleNextPopup();
+            }, 10000);
+        }
     }
 
     scheduleNextPopup() {
@@ -878,6 +909,11 @@ class FactsApp {
         if (savedFont) {
             this.fontSelector.value = savedFont;
             document.documentElement.style.setProperty('--font-family', savedFont);
+        } else {
+            // Default to Source Sans Pro if not saved
+            const defaultFont = "'Source Sans Pro', sans-serif";
+            this.fontSelector.value = defaultFont;
+            document.documentElement.style.setProperty('--font-family', defaultFont);
         }
 
         // Load font size
@@ -886,11 +922,29 @@ class FactsApp {
             this.fontSizeSlider.value = savedSize;
             this.fontSizeValue.textContent = `${savedSize}px`;
             document.documentElement.style.setProperty('--font-size', `${savedSize}px`);
+        } else {
+            // Default to 16px if not saved
+            const defaultSize = '16';
+            this.fontSizeSlider.value = defaultSize;
+            this.fontSizeValue.textContent = `${defaultSize}px`;
+            document.documentElement.style.setProperty('--font-size', `${defaultSize}px`);
+        }
+
+        // Load popup state
+        const savedPopupsEnabled = localStorage.getItem('popupsEnabled');
+        if (savedPopupsEnabled !== null) {
+            this.popupsEnabled = JSON.parse(savedPopupsEnabled);
+            this.popupToggle.checked = this.popupsEnabled;
+        } else {
+            // Default popups to disabled if not set
+            this.popupsEnabled = false;
+            this.popupToggle.checked = false;
         }
     }
 
     saveSettings() {
         localStorage.setItem('likedFacts', JSON.stringify(this.likedFacts));
+        localStorage.setItem('popupsEnabled', this.popupsEnabled); // Ensure popup state is saved
     }
 
     delay(ms) {
@@ -900,5 +954,6 @@ class FactsApp {
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new FactsApp();
+    const app = new FactsApp();
+    app.init(); // Call the async init method
 });
